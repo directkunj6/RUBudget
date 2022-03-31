@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/ic_launcher_background"
+    android:background="@drawable/budgetingbackground"
     tools:context=".Login">
 
     <EditText
@@ -52,6 +52,7 @@
         android:layout_marginTop="107dp"
         android:fontFamily="@font/aclonica"
         android:text="RUBudgeting"
+        android:textColor="@color/purple_500"
         android:textSize="25sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -64,6 +65,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="107dp"
         android:text="New Here? Create Account"
+        android:textColor="@color/purple_500"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
