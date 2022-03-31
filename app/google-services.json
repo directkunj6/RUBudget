@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1074004393353",
+    "project_id": "rubudget-4e91e",
+    "storage_bucket": "rubudget-4e91e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1074004393353:android:adae983afc2ffee0d2f558",
+        "android_client_info": {
+          "package_name": "com.example.rubudget"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1074004393353-sbudsq5f7g3ikmgfaegrek9qsmg8c002.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDbPizeS4db78PGcS1eqI7whCOkaMzYZus"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1074004393353-sbudsq5f7g3ikmgfaegrek9qsmg8c002.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
