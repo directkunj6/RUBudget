@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/greenbackground"
+    tools:context=".userInfo">
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="398dp"
+        android:layout_height="145dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="98dp"
+        android:layout_marginEnd="6dp"
+        android:layout_marginBottom="127dp"
+        android:fontFamily="sans-serif"
+        android:text="What is your estimated monthly income? "
+        android:textAlignment="center"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/monthlyIncome"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/monthlyIncome"
+        android:layout_width="270dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="430dp"
+        android:ems="10"
+        android:hint="Your Projected Monthly Income"
+        android:inputType="textPersonName"
+        android:textColor="@color/black"
+        android:textColorHint="#333039"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
