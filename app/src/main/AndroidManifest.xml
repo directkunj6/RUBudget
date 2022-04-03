@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RUBudget">
         <activity
+            android:name=".Needs"
+            android:exported="false" />
+        <activity
+            android:name=".Home"
+            android:exported="false" />
+        <activity
             android:name=".userInfo"
             android:exported="false" />
         <activity
