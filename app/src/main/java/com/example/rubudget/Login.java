@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -21,6 +22,7 @@ public class Login extends AppCompatActivity {
     EditText  mEmail, mPassword;
     Button mLoginBtn;
     FirebaseAuth fAuth;
+    TextView mRegisterBtn;
 
 
 
@@ -33,6 +35,7 @@ public class Login extends AppCompatActivity {
         mEmail = findViewById(R.id.email2);
         mPassword = findViewById(R.id.password2);
         mLoginBtn = findViewById(R.id.loginBtn);
+        mRegisterBtn = findViewById(R.id.RegisterBtn);
 
         fAuth = FirebaseAuth.getInstance();
 
@@ -59,12 +62,19 @@ public class Login extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
                             Toast.makeText(Login.this,"Login is succesfull", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                            startActivity(new Intent(getApplicationContext(),Home.class));
                         }
 
                     }
                 });
 
+            }
+        });
+
+        mRegisterBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),Register.class));
             }
         });
     }

@@ -98,7 +98,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/LoginHere"
+        android:id="@+id/LoginScreenBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="107dp"
@@ -120,7 +120,7 @@
         android:backgroundTint="@color/black"
         android:text="REGISTER"
         android:textColor="@color/teal_200"
-        app:layout_constraintBottom_toTopOf="@+id/LoginHere"
+        app:layout_constraintBottom_toTopOf="@+id/LoginScreenBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

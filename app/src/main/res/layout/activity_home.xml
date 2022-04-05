@@ -9,8 +9,8 @@
 
     <Button
         android:id="@+id/settings"
-        android:layout_width="341dp"
-        android:layout_height="0dp"
+        android:layout_width="350dp"
+        android:layout_height="53dp"
         android:layout_marginBottom="246dp"
         android:backgroundTint="#D62727"
         android:text="SETTINGS"
@@ -18,8 +18,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tokens" />
+        app:layout_constraintTop_toBottomOf="@+id/tokens"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/savings"
@@ -37,15 +39,13 @@
 
     <Button
         android:id="@+id/tokens"
-        android:layout_width="254dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="203dp"
+        android:layout_width="255dp"
+        android:layout_height="46dp"
         android:backgroundTint="@color/black"
         android:text="TOKENS"
         android:textColor="@color/teal_200"
-        app:layout_constraintBottom_toTopOf="@+id/settings"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/savings" />
 
@@ -76,4 +76,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/Logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Logout"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/settings"
+        app:layout_constraintVertical_bias="0.51" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

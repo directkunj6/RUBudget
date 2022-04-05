@@ -21,7 +21,7 @@ public class Register extends AppCompatActivity {
 
     EditText mFullName, mEmail, mPassword, mPhoneNumber;
     Button mRegisterBtn;
-    TextView mLoginHere;
+    TextView mLoginHereBtn;
     FirebaseAuth fAuth;
 
 
@@ -36,15 +36,22 @@ public class Register extends AppCompatActivity {
         mPassword = findViewById(R.id.password);
         mPhoneNumber = findViewById(R.id.phoneNumber);
         mRegisterBtn = findViewById(R.id.registerBtn);
-        mLoginHere = findViewById(R.id.LoginHere);
+        mLoginHereBtn = findViewById(R.id.LoginScreenBtn);
 
         fAuth = FirebaseAuth.getInstance();
 
-        if(fAuth.getCurrentUser() != null){
-            startActivity(new Intent(getApplicationContext(),MainActivity.class));
-            finish();
+        //if(fAuth.getCurrentUser() != null){
+            //startActivity(new Intent(getApplicationContext(),MainActivity.class));
+            //finish();
 
-        }
+        //}
+
+        mLoginHereBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),Login.class));
+            }
+        });
 
         mRegisterBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,6 +85,8 @@ public class Register extends AppCompatActivity {
                         }
                     }
                 });
+
+
 
 
 
