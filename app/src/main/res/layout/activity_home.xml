@@ -9,66 +9,73 @@
 
     <Button
         android:id="@+id/settings"
-        android:layout_width="350dp"
-        android:layout_height="53dp"
-        android:layout_marginBottom="246dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="101dp"
         android:backgroundTint="#D62727"
         android:text="SETTINGS"
         android:textColor="@color/black"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/Logout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tokens"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/tokens" />
 
     <Button
         android:id="@+id/savings"
-        android:layout_width="254dp"
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="17dp"
+        android:layout_marginStart="74dp"
+        android:layout_marginEnd="74dp"
+        android:layout_marginBottom="33dp"
         android:backgroundTint="@color/black"
         android:text="SAVINGS"
         android:textColor="@color/teal_200"
         app:layout_constraintBottom_toTopOf="@+id/tokens"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/wants" />
 
     <Button
         android:id="@+id/tokens"
-        android:layout_width="255dp"
-        android:layout_height="46dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="74dp"
+        android:layout_marginEnd="74dp"
+        android:layout_marginBottom="124dp"
         android:backgroundTint="@color/black"
         android:text="TOKENS"
         android:textColor="@color/teal_200"
+        app:layout_constraintBottom_toTopOf="@+id/settings"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/savings" />
 
     <Button
         android:id="@+id/wants"
-        android:layout_width="254dp"
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="15dp"
+        android:layout_marginStart="74dp"
+        android:layout_marginEnd="74dp"
+        android:layout_marginBottom="28dp"
         android:backgroundTint="@color/black"
         android:text="WANTS"
         android:textColor="@color/teal_200"
         app:layout_constraintBottom_toTopOf="@+id/savings"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/needs" />
 
     <Button
         android:id="@+id/needs"
-        android:layout_width="254dp"
+        android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginStart="74dp"
         android:layout_marginTop="104dp"
-        android:layout_marginBottom="11dp"
+        android:layout_marginEnd="74dp"
+        android:layout_marginBottom="23dp"
         android:backgroundTint="@color/black"
         android:text="NEEDS"
         android:textColor="@color/teal_200"
@@ -81,11 +88,11 @@
         android:id="@+id/Logout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="97dp"
         android:text="Logout"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/settings"
-        app:layout_constraintVertical_bias="0.51" />
+        app:layout_constraintTop_toBottomOf="@+id/settings" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

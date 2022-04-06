@@ -17,7 +17,7 @@ public class Needs extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_needs);
 
-        mMortgageSeekBar = findViewById(R.id.mortgageSeekBar);
+        mMortgageSeekBar = findViewById(R.id.housingSeekBar);
         mGroceriesSeekBar = findViewById(R.id.groceriesSeekBar);
         mUtilitiesSeekBar = findViewById(R.id.utilitiesSeekBar);
         mInusranceSeekBar = findViewById(R.id.insuranceSeekBar);
