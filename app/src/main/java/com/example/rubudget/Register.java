@@ -16,6 +16,9 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class Register extends AppCompatActivity {
 
@@ -24,6 +27,7 @@ public class Register extends AppCompatActivity {
     TextView mLoginHereBtn;
     FirebaseAuth fAuth;
 
+    DatabaseReference UserRef;
 
 
     @Override
@@ -39,6 +43,7 @@ public class Register extends AppCompatActivity {
         mLoginHereBtn = findViewById(R.id.LoginScreenBtn);
 
         fAuth = FirebaseAuth.getInstance();
+
 
         //if(fAuth.getCurrentUser() != null){
             //startActivity(new Intent(getApplicationContext(),MainActivity.class));
@@ -58,6 +63,8 @@ public class Register extends AppCompatActivity {
             public void onClick(View view) {
                 String Email = mEmail.getText().toString().trim();
                 String Password = mPassword.getText().toString().trim();
+                String FullName = mFullName.getText().toString().trim();
+                String PhoneNumber = mPhoneNumber.getText().toString().trim();
 
                 if(TextUtils.isEmpty(Email)){
                     mEmail.setError("Email is Required");
@@ -78,8 +85,30 @@ public class Register extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            Toast.makeText(Register.this,"User is Created", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                            FirebaseUser firebaseUser = fAuth.getCurrentUser();
+
+                            ReadWriteUserDetails writeUserDetails = new ReadWriteUserDetails(FullName, Email, PhoneNumber);
+
+                            UserRef = FirebaseDatabase.getInstance().getReference("Registered Users");
+                            UserRef.child(firebaseUser.getUid()).setValue(writeUserDetails).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+
+                                    if (task.isSuccessful()){
+                                        Toast.makeText(Register.this,"User is Created", Toast.LENGTH_SHORT).show();
+                                        startActivity(new Intent(getApplicationContext(),Home.class));
+
+                                    }
+
+                                    else {
+                                        Toast.makeText(Register.this,"Error" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                    }
+
+
+                                }
+                            });
+
+                            startActivity(new Intent(getApplicationContext(),Home.class));
                         }else {
                             Toast.makeText(Register.this,"Error" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                         }
