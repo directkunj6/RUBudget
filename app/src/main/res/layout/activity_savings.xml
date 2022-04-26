@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/greenbackground"
+    tools:context=".Savings">
+
+    <Button
+        android:id="@+id/user_Savings_Information"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="278dp"
+        android:text="SAVE"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/savingsSeekBar" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="136dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="23dp"
+        android:fontFamily="@font/aclonica"
+        android:text="Savings"
+        android:textAlignment="center"
+        android:textColor="#B81F1F"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/savingsInvestments"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/savingsInvestments"
+        android:layout_width="172dp"
+        android:layout_height="32dp"
+        android:text="Savings and Investments 0"
+        app:layout_constraintBottom_toTopOf="@+id/savingsSeekBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+    <SeekBar
+        android:id="@+id/savingsSeekBar"
+        android:layout_width="339dp"
+        android:layout_height="44dp"
+        android:layout_marginBottom="147dp"
+        android:max="10000"
+        app:layout_constraintBottom_toTopOf="@+id/user_Savings_Information"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/savingsInvestments" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

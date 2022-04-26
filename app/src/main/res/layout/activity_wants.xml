@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/greenbackground"
+    tools:context=".wants">
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="172dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="@font/aclonica"
+        android:text="Wants"
+        android:textAlignment="center"
+        android:textColor="#B81F1F"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/restaurants"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <SeekBar
+        android:id="@+id/restaurantsSeekBar"
+        android:layout_width="316dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="31dp"
+        app:layout_constraintBottom_toTopOf="@+id/clothing"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:max="10000"
+        app:layout_constraintTop_toBottomOf="@+id/restaurants" />
+
+    <TextView
+        android:id="@+id/misc2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="1dp"
+        android:text="Miscellaneous 0"
+        app:layout_constraintBottom_toTopOf="@+id/misc2SeekBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/entertainmentSeekBar" />
+
+    <TextView
+        android:id="@+id/entertainment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Entertainment 0"
+        app:layout_constraintBottom_toTopOf="@+id/entertainmentSeekBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/travelSeekBar" />
+
+    <TextView
+        android:id="@+id/restaurants"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginBottom="1dp"
+        android:text="Restaurants 0"
+        app:layout_constraintBottom_toTopOf="@+id/restaurantsSeekBar"
+        app:layout_constraintStart_toStartOf="@+id/textView6"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+    <TextView
+        android:id="@+id/travel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Travel 0"
+        app:layout_constraintBottom_toTopOf="@+id/travelSeekBar"
+        app:layout_constraintEnd_toEndOf="@+id/clothing"
+        app:layout_constraintStart_toStartOf="@+id/clothing"
+        app:layout_constraintTop_toBottomOf="@+id/clothingSeekBar" />
+
+    <TextView
+        android:id="@+id/clothing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="2dp"
+        android:text="Clothing 0"
+        app:layout_constraintBottom_toTopOf="@+id/clothingSeekBar"
+        app:layout_constraintEnd_toEndOf="@+id/clothingSeekBar"
+        app:layout_constraintStart_toStartOf="@+id/clothingSeekBar"
+        app:layout_constraintTop_toBottomOf="@+id/restaurantsSeekBar" />
+
+    <SeekBar
+        android:id="@+id/clothingSeekBar"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:max="10000"
+        android:layout_marginStart="37dp"
+        android:layout_marginEnd="37dp"
+        android:layout_marginBottom="25dp"
+        app:layout_constraintBottom_toTopOf="@+id/travel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/clothing" />
+
+    <SeekBar
+        android:max="10000"
+        android:id="@+id/misc2SeekBar"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="38dp"
+        android:layout_marginEnd="38dp"
+        android:layout_marginBottom="87dp"
+        app:layout_constraintBottom_toTopOf="@+id/User_Wants_Information"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/misc2" />
+
+    <SeekBar
+        android:max="10000"
+        android:id="@+id/entertainmentSeekBar"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="37dp"
+        android:layout_marginEnd="37dp"
+        android:layout_marginBottom="41dp"
+        app:layout_constraintBottom_toTopOf="@+id/misc2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/entertainment" />
+
+    <SeekBar
+        android:max="10000"
+        android:id="@+id/travelSeekBar"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="37dp"
+        android:layout_marginEnd="37dp"
+        android:layout_marginBottom="41dp"
+        app:layout_constraintBottom_toTopOf="@+id/entertainment"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/travel" />
+
+    <Button
+        android:id="@+id/User_Wants_Information"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="127dp"
+        android:text="SAVE"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/misc2SeekBar" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
