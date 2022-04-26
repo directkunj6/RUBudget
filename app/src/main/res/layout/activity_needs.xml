@@ -7,36 +7,108 @@
     android:background="@drawable/greenbackground"
     tools:context=".Needs">
 
+    <SeekBar
+        android:id="@+id/utilitiesSeekBar"
+        android:layout_width="291dp"
+        android:layout_height="0dp"
+        android:max="10000"
+        android:progress="0"
+        app:layout_constraintBottom_toTopOf="@+id/groceries"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.539"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/utilities" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="136dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/aclonica"
+        android:text="Needs"
+        android:textAlignment="center"
+        android:textColor="#B81F1F"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/housing"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/User_Needs_Information"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="122dp"
+        android:text="Save"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/insurance"
+        app:layout_constraintStart_toStartOf="@+id/miscNeeds"
+        app:layout_constraintTop_toBottomOf="@+id/miscSeekBar" />
+
     <TextView
         android:id="@+id/housing"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="4dp"
-        android:layout_marginBottom="1dp"
         android:text="Housing 0"
         app:layout_constraintBottom_toTopOf="@+id/housingSeekBar"
-        app:layout_constraintEnd_toEndOf="@+id/groceries"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
-    <TextView
-        android:id="@+id/insurance"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="27dp"
-        android:text="Insurance 0"
-        app:layout_constraintBottom_toTopOf="@+id/insuranceSeekBar"
-        app:layout_constraintEnd_toEndOf="@+id/health"
-        app:layout_constraintTop_toBottomOf="@+id/utilitiesSeekBar" />
+    <SeekBar
+        android:id="@+id/miscSeekBar"
+        android:layout_width="283dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="12dp"
+        android:max="10000"
+        android:progress="0"
+        app:layout_constraintBottom_toTopOf="@+id/User_Needs_Information"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/miscNeeds" />
+
+    <SeekBar
+        android:id="@+id/groceriesSeekBar"
+        android:layout_width="291dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="68dp"
+        android:layout_marginBottom="67dp"
+        android:max="10000"
+        android:progress="0"
+        app:layout_constraintBottom_toTopOf="@+id/health"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/utilitiesSeekBar" />
+
+    <SeekBar
+        android:id="@+id/healthSeekBar"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="51dp"
+        android:layout_marginEnd="51dp"
+        android:layout_marginBottom="1dp"
+        android:max="10000"
+        android:progress="0"
+        app:layout_constraintBottom_toTopOf="@+id/transportation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/health" />
 
     <TextView
-        android:id="@+id/utilities"
+        android:id="@+id/transportation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="6dp"
-        android:text="Utilities 0"
-        app:layout_constraintBottom_toTopOf="@+id/utilitiesSeekBar"
-        app:layout_constraintStart_toStartOf="@+id/groceries"
-        app:layout_constraintTop_toBottomOf="@+id/groceriesSeekBar" />
+        android:text="Transportation 0"
+        app:layout_constraintBottom_toTopOf="@+id/transportationSeekBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/healthSeekBar" />
 
     <TextView
         android:id="@+id/health"
@@ -45,8 +117,33 @@
         android:text="Health and Fitness 0"
         app:layout_constraintBottom_toTopOf="@+id/healthSeekBar"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/insuranceSeekBar" />
+
+    <TextView
+        android:id="@+id/miscNeeds"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Miscellaneous 0"
+        app:layout_constraintBottom_toTopOf="@+id/miscSeekBar"
+        app:layout_constraintEnd_toEndOf="@+id/debtSeekBar"
+        app:layout_constraintStart_toStartOf="@+id/debtSeekBar"
+        app:layout_constraintTop_toBottomOf="@+id/debtSeekBar" />
+
+    <SeekBar
+        android:id="@+id/insuranceSeekBar"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="51dp"
+        android:layout_marginEnd="51dp"
+        android:layout_marginBottom="2dp"
+        android:max="10000"
+        android:progress="0"
+        app:layout_constraintBottom_toTopOf="@+id/health"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/insurance" />
 
     <SeekBar
         android:id="@+id/transportationSeekBar"
@@ -59,156 +156,71 @@
         app:layout_constraintStart_toStartOf="@+id/healthSeekBar"
         app:layout_constraintTop_toBottomOf="@+id/transportation" />
 
-    <TextView
-        android:id="@+id/transportation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:text="Transportation 0"
-        app:layout_constraintBottom_toTopOf="@+id/transportationSeekBar"
-        app:layout_constraintStart_toStartOf="@+id/health"
-        app:layout_constraintTop_toBottomOf="@+id/healthSeekBar" />
-
     <SeekBar
-        android:id="@+id/insuranceSeekBar"
-        android:layout_width="0dp"
+        android:id="@+id/debtSeekBar"
+        android:layout_width="283dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="1dp"
         android:max="10000"
         android:progress="0"
-        app:layout_constraintBottom_toTopOf="@+id/health"
-        app:layout_constraintEnd_toEndOf="@+id/transportationSeekBar"
-        app:layout_constraintStart_toStartOf="@+id/healthSeekBar"
-        app:layout_constraintTop_toBottomOf="@+id/insurance" />
+        app:layout_constraintBottom_toTopOf="@+id/miscNeeds"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/debt" />
 
     <TextView
         android:id="@+id/debt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="29dp"
-        android:layout_marginBottom="1dp"
+        android:layout_marginBottom="2dp"
         android:text="Debt 0"
         app:layout_constraintBottom_toTopOf="@+id/debtSeekBar"
-        app:layout_constraintEnd_toEndOf="@+id/transportation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/transportationSeekBar" />
+
+    <TextView
+        android:id="@+id/insurance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="2dp"
+        android:text="Insurance 0"
+        app:layout_constraintBottom_toTopOf="@+id/insuranceSeekBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/groceries" />
 
     <SeekBar
         android:id="@+id/housingSeekBar"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:max="10000"
-        android:progress="0"
-        app:layout_constraintBottom_toTopOf="@+id/groceries"
-        app:layout_constraintEnd_toEndOf="@+id/groceriesSeekBar"
-        app:layout_constraintStart_toStartOf="@+id/groceriesSeekBar"
-        app:layout_constraintTop_toBottomOf="@+id/housing" />
-
-    <SeekBar
-        android:id="@+id/groceriesSeekBar"
-        android:layout_width="0dp"
+        android:layout_width="291dp"
         android:layout_height="0dp"
         android:max="10000"
         android:progress="0"
         app:layout_constraintBottom_toTopOf="@+id/utilities"
-        app:layout_constraintEnd_toEndOf="@+id/utilitiesSeekBar"
-        app:layout_constraintStart_toStartOf="@+id/utilitiesSeekBar"
-        app:layout_constraintTop_toBottomOf="@+id/groceries" />
-
-    <TextView
-        android:id="@+id/misc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Miscellaneous 0"
-        app:layout_constraintBottom_toTopOf="@+id/miscSeekBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/debtSeekBar" />
-
-    <SeekBar
-        android:id="@+id/debtSeekBar"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:max="10000"
-        android:progress="0"
-        app:layout_constraintBottom_toTopOf="@+id/misc"
-        app:layout_constraintEnd_toEndOf="@+id/miscSeekBar"
-        app:layout_constraintStart_toStartOf="@+id/miscSeekBar"
-        app:layout_constraintTop_toBottomOf="@+id/debt" />
-
-    <SeekBar
-        android:id="@+id/utilitiesSeekBar"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="1dp"
-        android:max="10000"
-        android:progress="0"
-        app:layout_constraintBottom_toTopOf="@+id/insurance"
-        app:layout_constraintEnd_toEndOf="@+id/healthSeekBar"
-        app:layout_constraintStart_toStartOf="@+id/insuranceSeekBar"
-        app:layout_constraintTop_toBottomOf="@+id/utilities" />
-
-    <SeekBar
-        android:id="@+id/miscSeekBar"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="63dp"
-        android:layout_marginEnd="63dp"
-        android:layout_marginBottom="258dp"
-        android:max="10000"
-        android:progress="0"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/misc" />
-
-    <SeekBar
-        android:id="@+id/healthSeekBar"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="59dp"
-        android:layout_marginEnd="59dp"
-        android:layout_marginBottom="1dp"
-        android:max="10000"
-        android:progress="0"
-        app:layout_constraintBottom_toTopOf="@+id/transportation"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/health" />
+        app:layout_constraintTop_toBottomOf="@+id/housing" />
 
     <TextView
         android:id="@+id/groceries"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="1dp"
+        android:layout_marginEnd="160dp"
+        android:layout_marginBottom="45dp"
         android:text="Groceries 0"
-        app:layout_constraintBottom_toTopOf="@+id/groceriesSeekBar"
+        app:layout_constraintBottom_toTopOf="@+id/insurance"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/utilitiesSeekBar" />
+
+    <TextView
+        android:id="@+id/utilities"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Utilities 0"
+        app:layout_constraintBottom_toTopOf="@+id/utilitiesSeekBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/housingSeekBar" />
 
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="136dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginBottom="93dp"
-        android:fontFamily="@font/aclonica"
-        android:text="Needs"
-        android:textAlignment="center"
-        android:textColor="#B81F1F"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/housing"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/User_Needs_Information"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Save"
-        tools:layout_editor_absoluteX="158dp"
-        tools:layout_editor_absoluteY="533dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

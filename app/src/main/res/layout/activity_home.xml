@@ -10,10 +10,8 @@
     <Button
         android:id="@+id/settings"
         android:layout_width="300dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginBottom="101dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="23dp"
         android:backgroundTint="#D62727"
         android:text="SETTINGS"
         android:textColor="@color/black"
@@ -24,40 +22,28 @@
         app:layout_constraintTop_toBottomOf="@+id/tokens" />
 
     <Button
-        android:id="@+id/savings"
-        android:layout_width="263dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="74dp"
-        android:layout_marginEnd="74dp"
-        android:layout_marginBottom="28dp"
-        android:backgroundTint="@color/black"
-        android:text="SAVINGS"
-        android:textColor="@color/teal_200"
-        app:layout_constraintBottom_toTopOf="@+id/tokens"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/wants" />
-
-    <Button
         android:id="@+id/tokens"
-        android:layout_width="263dp"
-        android:layout_height="40dp"
-        android:layout_marginBottom="129dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="69dp"
+        android:layout_marginEnd="69dp"
+        android:layout_marginBottom="172dp"
         android:backgroundTint="@color/black"
         android:text="TOKENS"
         android:textColor="@color/teal_200"
         app:layout_constraintBottom_toTopOf="@+id/settings"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/savings" />
 
     <Button
         android:id="@+id/wants"
-        android:layout_width="263dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="74dp"
-        android:layout_marginEnd="74dp"
-        android:layout_marginBottom="28dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="69dp"
+        android:layout_marginEnd="69dp"
+        android:layout_marginBottom="10dp"
         android:backgroundTint="@color/black"
         android:text="WANTS"
         android:textColor="@color/teal_200"
@@ -68,10 +54,10 @@
 
     <Button
         android:id="@+id/needs"
-        android:layout_width="263dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="96dp"
-        android:layout_marginBottom="31dp"
+        android:layout_width="255dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="79dp"
+        android:layout_marginBottom="11dp"
         android:backgroundTint="@color/black"
         android:text="NEEDS"
         android:textColor="@color/teal_200"
@@ -81,10 +67,25 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
+        android:id="@+id/savings"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="69dp"
+        android:layout_marginEnd="69dp"
+        android:layout_marginBottom="7dp"
+        android:backgroundTint="@color/black"
+        android:text="SAVINGS"
+        android:textColor="@color/teal_200"
+        app:layout_constraintBottom_toTopOf="@+id/tokens"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/wants" />
+
+    <Button
         android:id="@+id/Logout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="97dp"
+        android:layout_marginBottom="153dp"
         android:text="Logout"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

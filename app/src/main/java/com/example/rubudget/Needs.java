@@ -1,6 +1,5 @@
 package com.example.rubudget;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -9,10 +8,7 @@ import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -47,7 +43,7 @@ public class Needs extends AppCompatActivity {
         mHealthandFitness = findViewById(R.id.health);
         mTransportation = findViewById(R.id.transportation);
         mDebt = findViewById(R.id.debt);
-        mMisc = findViewById(R.id.misc);
+        mMisc = findViewById(R.id.miscNeeds);
 
         mSave_User_Needs_Information = findViewById(R.id.User_Needs_Information);
 
