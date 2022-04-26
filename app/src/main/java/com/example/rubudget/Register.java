@@ -85,9 +85,10 @@ public class Register extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
+
                             FirebaseUser firebaseUser = fAuth.getCurrentUser();
 
-                            ReadWriteUserDetails writeUserDetails = new ReadWriteUserDetails(FullName, Email, PhoneNumber);
+                            ReadWriteUserDetails writeUserDetails = new ReadWriteUserDetails(FullName, Email, PhoneNumber, 5);
 
                             UserRef = FirebaseDatabase.getInstance().getReference("Registered Users");
                             UserRef.child(firebaseUser.getUid()).setValue(writeUserDetails).addOnCompleteListener(new OnCompleteListener<Void>() {

@@ -1,9 +1,9 @@
 package com.example.rubudget;
 
 public class ReadWriteUserNeeds {
-    public String Housing, Groceries, Utilities, Insurance, HealthandFitness, Transportation, Debt, Misc;
+    public long Housing, Groceries, Utilities, Insurance, HealthandFitness, Transportation, Debt, Misc;
 
-    public ReadWriteUserNeeds(String textHousing, String textGroceries, String textUtilities,String textInsurance,String textHealthandFitness,String textTransportation,String textDebt,String textMisc){
+    public ReadWriteUserNeeds(long textHousing, long textGroceries, long textUtilities,long textInsurance,long textHealthandFitness,long textTransportation,long textDebt,long textMisc){
         this.Housing = textHousing;
         this.Groceries = textGroceries;
         this.Utilities = textUtilities;
