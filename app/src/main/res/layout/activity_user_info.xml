@@ -7,6 +7,17 @@
     android:background="@drawable/greenbackground"
     tools:context=".userInfo">
 
+    <Button
+        android:id="@+id/user_Income_Information"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="278dp"
+        android:text="SAVE"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/monthlyIncome" />
+
     <TextView
         android:id="@+id/textView3"
         android:layout_width="398dp"
@@ -28,7 +39,7 @@
     <EditText
         android:id="@+id/monthlyIncome"
         android:layout_width="270dp"
-        android:layout_height="0dp"
+        android:layout_height="90dp"
         android:layout_marginBottom="430dp"
         android:ems="10"
         android:hint="Your Projected Monthly Income"

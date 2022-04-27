@@ -9,7 +9,7 @@ import android.widget.Button;
 
 public class Home extends AppCompatActivity {
 
-    Button mNeedsBtn, mLogoutBtn, mWantsBtn, mSavingsBtn;
+    Button mNeedsBtn, mLogoutBtn, mWantsBtn, mSavingsBtn, mSettingsBtn;
 
 
     @Override
@@ -21,6 +21,7 @@ public class Home extends AppCompatActivity {
         mLogoutBtn = findViewById(R.id.Logout);
         mWantsBtn=findViewById(R.id.wants);
         mSavingsBtn=findViewById((R.id.savings));
+        mSettingsBtn=findViewById(R.id.settings);
         mLogoutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -45,6 +46,12 @@ public class Home extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getApplicationContext(),Savings.class));
+            }
+        });
+        mSettingsBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),userInfo.class));
             }
         });
 
