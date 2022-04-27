@@ -136,6 +136,11 @@ public class Register extends AppCompatActivity {
                             UserRef.child(userId).child("Needs").setValue(readWriteUserNeeds);
                             UserRef.child(userId).child("Wants").setValue(readWriteUserWants);
                             UserRef.child(userId).child("Savings").setValue(readWriteUserSavings);
+                            UserRef.child(userId).child("Needs Date").setValue(0);
+                            UserRef.child(userId).child("Saving Date").setValue(0);
+                            UserRef.child(userId).child("Wants Date").setValue(0);
+                            UserRef.child(userId).child("Login Date").setValue(0);
+                            UserRef.child(userId).child("Income").setValue(0);
 
                             startActivity(new Intent(getApplicationContext(),Home.class));
                         }else {

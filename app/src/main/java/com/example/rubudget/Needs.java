@@ -4,7 +4,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.format.DateFormat;
 import android.view.View;
 import android.widget.Button;
 import android.widget.SeekBar;
@@ -21,6 +23,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.Date;
+
 public class Needs extends AppCompatActivity {
 
     SeekBar mMortgageSeekBar, mGroceriesSeekBar, mUtilitiesSeekBar, mInusranceSeekBar, mHealthandFitnessSeekBar, mTransportationSeekBar, mDebtSeekBar, mMiscSeekBar;
@@ -29,6 +33,9 @@ public class Needs extends AppCompatActivity {
     Button  mSave_User_Needs_Information;
 
     public long HousingValue, GroceriesValue, UtilitiesValue, InsuranceValue, HealthandFitnessValue, TransportationValue, DebtValue, MiscValue;
+
+    private SharedPreferences pref;
+    private SharedPreferences.Editor editor;
 
 
     @Override
@@ -255,13 +262,95 @@ public class Needs extends AppCompatActivity {
             public void onClick(View view) {
                 String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
                 mDatabase = FirebaseDatabase.getInstance().getReference().child("Registered Users");
+
+
+                mDatabase.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                        Date date = new Date();
+                        int today = Integer.parseInt(DateFormat.format("dd",   date).toString());
+                        long lastCheck = snapshot.child(userId).child("Needs Date").getValue(Long.class);
+
+
+                        if(lastCheck == 0 || today > lastCheck){
+
+                            lastCheck = (long) today;
+                            String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                            mDatabase = FirebaseDatabase.getInstance().getReference().child("Registered Users").child(userId);
+                            mDatabase.child("Needs Date").setValue(lastCheck);
+
+                            long Tokens = snapshot.child(userId).child("Tokens").getValue(Long.class);
+                            Tokens = Tokens + 5 ;
+
+                            mDatabase.child("Tokens").setValue(Tokens);
+                            Toast.makeText(getApplicationContext(),"you got 5 tokens!",Toast.LENGTH_SHORT).show();
+                        }
+
+                        else{
+                            Toast.makeText(getApplicationContext(),"Can't get anymore tokens",Toast.LENGTH_SHORT).show();
+
+                        }
+                    }
+
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+
+
+
+
+
+
+
+
+
                 ReadWriteUserNeeds readWriteUserNeeds = new ReadWriteUserNeeds(HousingValue,GroceriesValue, UtilitiesValue,InsuranceValue,HealthandFitnessValue, TransportationValue,DebtValue,MiscValue);
                 mDatabase.child(userId).child("Needs").setValue(readWriteUserNeeds);
+
+
+
+                mDatabase = FirebaseDatabase.getInstance().getReference().child("Registered Users");
+                mDatabase.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        Long TotalNeeds = HousingValue + GroceriesValue + UtilitiesValue + InsuranceValue + HealthandFitnessValue + TransportationValue + DebtValue + MiscValue;
+
+                        Long Income = snapshot.child(userId).child("Income").getValue(Long.class);
+                        Income = Income/2;
+
+                        if(TotalNeeds > (Income)){
+                            Toast.makeText(getApplicationContext(), "your needs are greater than 50% of your income", Toast.LENGTH_SHORT);
+
+                        }
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+
+
                 Toast.makeText(getApplicationContext(), "Values have been saved!",
-                        Toast.LENGTH_LONG).show();
+                        Toast.LENGTH_SHORT).show();
 
             }
         });
 
+
+
+
+
+
+
+
     }
+
 }

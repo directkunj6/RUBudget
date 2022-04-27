@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.text.format.DateFormat;
 import android.view.View;
 import android.widget.Button;
 import android.widget.SeekBar;
@@ -16,6 +17,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import java.util.Date;
 
 public class Savings extends AppCompatActivity {
 
@@ -71,6 +74,44 @@ public class Savings extends AppCompatActivity {
             public void onClick(View view) {
                 String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
                 mDatabase = FirebaseDatabase.getInstance().getReference().child("Registered Users");
+
+
+                mDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                        Date date = new Date();
+                        int today = Integer.parseInt(DateFormat.format("dd",   date).toString());
+                        long lastCheck = snapshot.child(userId).child("Saving Date").getValue(Long.class);
+
+                        if(lastCheck == 0 || today > lastCheck){
+
+                            lastCheck = (long) today;
+                            String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                            mDatabase = FirebaseDatabase.getInstance().getReference().child("Registered Users").child(userId);
+                            mDatabase.child("Saving Date").setValue(lastCheck);
+
+                            long Tokens = snapshot.child(userId).child("Tokens").getValue(Long.class);
+                            Tokens = Tokens + 5 ;
+
+                            mDatabase.child("Tokens").setValue(Tokens);
+                            Toast.makeText(getApplicationContext(),"you got 5 tokens!",Toast.LENGTH_SHORT).show();
+                        }
+
+                        else{
+                            Toast.makeText(getApplicationContext(),"Can't get anymore tokens",Toast.LENGTH_SHORT).show();
+
+                        }
+                    }
+
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+
                 ReadWriteUserSavings readWriteUserSavings = new ReadWriteUserSavings(SavingsValue);
                 mDatabase.child(userId).child("Savings").setValue(readWriteUserSavings);
                 Toast.makeText(getApplicationContext(), "Values have been saved!",
@@ -79,4 +120,5 @@ public class Savings extends AppCompatActivity {
         });
 
     }
+
 }
