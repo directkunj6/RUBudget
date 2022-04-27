@@ -257,7 +257,7 @@ public class Needs extends AppCompatActivity {
                 mDatabase = FirebaseDatabase.getInstance().getReference().child("Registered Users");
                 ReadWriteUserNeeds readWriteUserNeeds = new ReadWriteUserNeeds(HousingValue,GroceriesValue, UtilitiesValue,InsuranceValue,HealthandFitnessValue, TransportationValue,DebtValue,MiscValue);
                 mDatabase.child(userId).child("Needs").setValue(readWriteUserNeeds);
-                Toast.makeText(getApplicationContext(), "This is my Toast message!",
+                Toast.makeText(getApplicationContext(), "Values have been saved!",
                         Toast.LENGTH_LONG).show();
 
             }

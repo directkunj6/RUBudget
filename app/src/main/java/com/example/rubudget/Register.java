@@ -89,6 +89,20 @@ public class Register extends AppCompatActivity {
                             FirebaseUser firebaseUser = fAuth.getCurrentUser();
 
                             ReadWriteUserDetails writeUserDetails = new ReadWriteUserDetails(FullName, Email, PhoneNumber, 5);
+                            long HousingValue = 0;
+                            long GroceriesValue = 0;
+                            long UtilitiesValue = 0;
+                            long InusranceValue = 0;
+                            long HealthandFitnessValue = 0;
+                            long TransportationValue = 0;
+                            long DebtValue = 0;
+                            long MisValue = 0;
+
+                            ReadWriteUserNeeds readWriteUserNeeds = new ReadWriteUserNeeds(HousingValue,GroceriesValue,UtilitiesValue,InusranceValue,HealthandFitnessValue,TransportationValue,DebtValue,MisValue);
+
+
+
+
 
                             UserRef = FirebaseDatabase.getInstance().getReference("Registered Users");
                             UserRef.child(firebaseUser.getUid()).setValue(writeUserDetails).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -109,10 +123,14 @@ public class Register extends AppCompatActivity {
                                 }
                             });
 
+                            String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                            UserRef.child(userId).child("Needs").setValue(readWriteUserNeeds);
+
                             startActivity(new Intent(getApplicationContext(),Home.class));
                         }else {
                             Toast.makeText(Register.this,"Error" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                         }
+
                     }
                 });
 
