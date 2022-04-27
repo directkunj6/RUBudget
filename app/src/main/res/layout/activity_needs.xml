@@ -216,18 +216,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/miscSeekBar" />
 
-    <Button
-        android:id="@+id/Logout_Needs"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="157dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="160dp"
-        android:layout_marginBottom="145dp"
-        android:text="Logout"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/User_Needs_Information" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

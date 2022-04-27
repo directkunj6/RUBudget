@@ -1,9 +1,9 @@
 package com.example.rubudget;
 
 public class ReadWriteUserWants {
-    public  String Restaurants, Clothing, Travel, Entertainment, Misc2;
+    public  long Restaurants, Clothing, Travel, Entertainment, Misc2;
 
-        public ReadWriteUserWants(String textRestaurants, String textClothing, String textTravel, String textEntertainment, String textMisc2) {
+        public ReadWriteUserWants(long textRestaurants, long textClothing, long textTravel, long textEntertainment, long textMisc2) {
             this.Restaurants = textRestaurants;
             this.Clothing = textClothing;
             this.Travel = textTravel;

@@ -26,7 +26,7 @@ public class Needs extends AppCompatActivity {
     SeekBar mMortgageSeekBar, mGroceriesSeekBar, mUtilitiesSeekBar, mInusranceSeekBar, mHealthandFitnessSeekBar, mTransportationSeekBar, mDebtSeekBar, mMiscSeekBar;
     TextView mHousing, mGroceries, mUtilities, mInsurance, mHealthandFitness, mTransportation, mDebt, mMisc;
     DatabaseReference mDatabase;
-    Button  mSave_User_Needs_Information, mLogout_Needs;
+    Button  mSave_User_Needs_Information;
 
     public long HousingValue, GroceriesValue, UtilitiesValue, InsuranceValue, HealthandFitnessValue, TransportationValue, DebtValue, MiscValue;
 
@@ -56,7 +56,7 @@ public class Needs extends AppCompatActivity {
         mMisc = findViewById(R.id.misc);
 
         mSave_User_Needs_Information = findViewById(R.id.User_Needs_Information);
-        mLogout_Needs = findViewById(R.id.Logout_Needs);
+
 
         String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
         mDatabase = FirebaseDatabase.getInstance().getReference().child("Registered Users").child(userId).child("Needs");
@@ -262,18 +262,6 @@ public class Needs extends AppCompatActivity {
 
             }
         });
-
-        mLogout_Needs.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(),Login.class));
-            }
-        });
-
-
-
-
-
 
     }
 }

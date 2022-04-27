@@ -1,5 +1,6 @@
 package com.example.rubudget;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -7,19 +8,24 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class wants extends AppCompatActivity {
 
 
     SeekBar mRestaurantsSeekBar, mClothingSeekBar, mTravelSeekBar, mEntertainmentSeekBar, mMisc2SeekBar;
     TextView mRestaurants, mClothing, mTravel, mEntertainment, mMisc2;
-    String textRestaurants, textClothing, textTravel, textEntertainment, textMisc2;
     DatabaseReference mDatabase;
     Button mSave_User_Wants_Information;
+
+    public long RestaurantsValue, ClothingValue, TravelValue, EntertainmentValue, Misc2Value;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,29 +46,57 @@ public class wants extends AppCompatActivity {
 
         mSave_User_Wants_Information = findViewById(R.id.User_Wants_Information);
 
-        mRestaurantsSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+        String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("Registered Users").child(userId).child("Wants");
+
+        mDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
-            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-                mRestaurants.setText("Restaurants " + String.valueOf(i));
-                textRestaurants = mRestaurants.getText().toString().trim();
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                RestaurantsValue = snapshot.child("Restaurants").getValue(Long.class);
+                ClothingValue = snapshot.child("Clothing").getValue(Long.class);
+                TravelValue = snapshot.child("Travel").getValue(Long.class);
+                EntertainmentValue = snapshot.child("Entertainment").getValue(Long.class);
+                Misc2Value = snapshot.child("Misc2").getValue(Long.class);
+
+
+                mRestaurantsSeekBar.setProgress((int) RestaurantsValue);
+                mClothingSeekBar.setProgress((int) ClothingValue);
+                mTravelSeekBar.setProgress((int) TravelValue);
+                mEntertainmentSeekBar.setProgress((int) EntertainmentValue);
+                mMisc2SeekBar.setProgress((int) Misc2Value);
+
             }
 
             @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
+            public void onCancelled(@NonNull DatabaseError error) {
 
             }
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-
-            }
-
         });
+
+        mRestaurantsSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+                @Override
+                public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+                    mRestaurants.setText("Restaurants " + i);
+                    RestaurantsValue = Long.valueOf(i);
+
+                }
+
+                @Override
+                public void onStartTrackingTouch(SeekBar seekBar) {
+
+                }
+
+                @Override
+                public void onStopTrackingTouch(SeekBar seekBar) {
+
+                }
+
+            });
         mClothingSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
                 mClothing.setText("Clothing " + String.valueOf(i));
-                textClothing = mClothing.getText().toString().trim();
+                ClothingValue = Long.valueOf(i);
             }
 
             @Override
@@ -74,13 +108,12 @@ public class wants extends AppCompatActivity {
             public void onStopTrackingTouch(SeekBar seekBar) {
 
             }
-
         });
         mTravelSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
                 mTravel.setText("Travel " + String.valueOf(i));
-                textTravel = mTravel.getText().toString().trim();
+                TravelValue=Long.valueOf(i);
             }
 
             @Override
@@ -98,8 +131,8 @@ public class wants extends AppCompatActivity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
                 mEntertainment.setText("Entertainment " + String.valueOf(i));
-                textEntertainment = mEntertainment.getText().toString().trim();
-            }
+                EntertainmentValue=Long.valueOf(i);
+                }
 
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
@@ -116,7 +149,7 @@ public class wants extends AppCompatActivity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
                 mMisc2.setText("Miscellaneous " + String.valueOf(i));
-                textMisc2 = mMisc2.getText().toString().trim();
+                Misc2Value=Long.valueOf(i);
             }
 
             @Override
@@ -134,8 +167,10 @@ public class wants extends AppCompatActivity {
             public void onClick(View view) {
                 String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
                 mDatabase = FirebaseDatabase.getInstance().getReference().child("Registered Users");
-                ReadWriteUserWants readWriteUserWants = new ReadWriteUserWants(textRestaurants, textClothing, textTravel, textEntertainment, textMisc2);
+                ReadWriteUserWants readWriteUserWants = new ReadWriteUserWants(RestaurantsValue,TravelValue,ClothingValue,Misc2Value,EntertainmentValue);
                 mDatabase.child(userId).child("Wants").setValue(readWriteUserWants);
+                Toast.makeText(getApplicationContext(), "Values have been saved!",
+                        Toast.LENGTH_LONG).show();
             }
         });
 

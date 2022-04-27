@@ -1,10 +1,10 @@
 package com.example.rubudget;
 
 public class ReadWriteUserSavings {
-    public String Savings;
+    public long Savings;
 
 
-    public ReadWriteUserSavings(String textSavingsInvestments){
+    public ReadWriteUserSavings(Long textSavingsInvestments){
         this.Savings = textSavingsInvestments;
     }
 }

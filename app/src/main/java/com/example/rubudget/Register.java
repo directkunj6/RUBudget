@@ -98,9 +98,18 @@ public class Register extends AppCompatActivity {
                             long DebtValue = 0;
                             long MisValue = 0;
 
+
                             ReadWriteUserNeeds readWriteUserNeeds = new ReadWriteUserNeeds(HousingValue,GroceriesValue,UtilitiesValue,InusranceValue,HealthandFitnessValue,TransportationValue,DebtValue,MisValue);
 
+                            long RestaurantsValue = 0;
+                            long EntertainmentValue = 0;
+                            long TravelValue = 0;
+                            long ClothingValue = 0;
+                            long Misc2Value = 0;
+                            ReadWriteUserWants readWriteUserWants = new ReadWriteUserWants(RestaurantsValue,EntertainmentValue,TravelValue,ClothingValue,Misc2Value);
 
+                            long SavingsValue= 0;
+                            ReadWriteUserSavings readWriteUserSavings = new ReadWriteUserSavings(SavingsValue);
 
 
 
@@ -125,6 +134,8 @@ public class Register extends AppCompatActivity {
 
                             String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
                             UserRef.child(userId).child("Needs").setValue(readWriteUserNeeds);
+                            UserRef.child(userId).child("Wants").setValue(readWriteUserWants);
+                            UserRef.child(userId).child("Savings").setValue(readWriteUserSavings);
 
                             startActivity(new Intent(getApplicationContext(),Home.class));
                         }else {
